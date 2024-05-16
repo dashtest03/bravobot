@@ -249,7 +249,7 @@ class Person:
             bottomCategorised['siteVcomm'] = self.displayNoStatus
 
     def __CategoriseFull(self, categorisedPersonnel, bottomCategorised):
-        if self.flight == 'alpha':
+        if self.flight == 'bravo':
             categorisedPersonnel[self.status.category].append(self)
         
         self.__CategoriseBottom(bottomCategorised)
@@ -491,9 +491,9 @@ class DataManager:
         self.__SortStandbyAndDuty()
     
     def __psTop(self):
-        psStr = f'Good Day ALPHA, below is the Forecasted Parade State for {self.dateRAW}.\n\n' \
+        psStr = f'Good Day BRAVO, below is the Forecasted Parade State for {self.dateRAW}.\n\n' \
                 f'COS: {self.cos}\n\n' \
-                f'TOTAL STRENGTH ({len([x for x in self.personnel if x.flight == "alpha"])})\n\n'
+                f'TOTAL STRENGTH ({len([x for x in self.personnel if x.flight == "bravo"])})\n\n'
         
         for category in self.categorisedPersonnel:
             if category != 'UNKNOWN':
@@ -512,7 +512,7 @@ class DataManager:
 
         if rationNum[0] != 0:
             midStr += f'BREAKFAST: [{rationNum[0]} PAX]\n' \
-                f'COS WILL SCAN ON BEHALF OF ALPHA\n\n' \
+                f'COS WILL SCAN ON BEHALF OF BRAVO\n\n' \
         
         if rationNum[1] != 0:
             lunchPersonnel = [x for x in self.categorisedPersonnel['PRESENT']]
@@ -525,7 +525,7 @@ class DataManager:
 
         if rationNum[2] != 0:
             midStr += f'DINNER: [{rationNum[2]} PAX]\n' \
-                    f'COS WILL SCAN ON BEHALF OF ALPHA\n\n' \
+                    f'COS WILL SCAN ON BEHALF OF BRAVO\n\n' \
 
         if midStr == '':
             return ''
